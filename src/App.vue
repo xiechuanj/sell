@@ -20,7 +20,16 @@
 import Header from './components/header/header'
 
 export default {
-  name: 'app',
+  data() {
+    return {
+      seller: {}
+    };
+  },
+  created() {
+    this.$http.get('/api/seller').then(() => {
+      
+    })
+  },
   components: {
     Header
   }
@@ -28,18 +37,19 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .tab{
+  .tab
     display: flex
     width: 100%
     height: 40px
     line-height: 40px
-  }
-  .tab .tab-item{
-    flex: 1
-    text-align: center
-  }
-  .tab .tab-item .router-link{
-    display: block
-    text-decoration: none
-  }
+    border-bottom: 1px solid rgba(7,17,27,0.1)
+    .tab-item
+      flex: 1
+      text-align: center
+      & > a
+        display: block
+        font-size: 14px
+        color: rgb(77, 85, 93)
+        &.active
+          color: rgb(240, 20, 20)
 </style>

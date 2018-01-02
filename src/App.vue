@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header/>
+    <Header :seller="seller"></Header>
     <div class="tab">
       <div class="tab-item">
         <router-link class="router-link" to="/goods">商品</router-link>
@@ -18,6 +18,7 @@
 
 <script>
 import Header from './components/header/header'
+const ERR_OK = 0;
 
 export default {
   data() {
@@ -26,8 +27,12 @@ export default {
     };
   },
   created() {
-    this.$http.get('/api/seller').then(() => {
-      
+    this.$http.get('/api/seller').then(response => {
+      response = response.body;
+      if (response.errno === ERR_OK){
+        this.seller = response.data;
+        console.log(this.seller);
+      }
     })
   },
   components: {

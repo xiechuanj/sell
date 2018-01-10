@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Header from './components/header/header'
+import Header from 'components/header/header'
 const ERR_OK = 0;
 
 export default {

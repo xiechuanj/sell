@@ -67,7 +67,7 @@
 </template>
 
 <script>
-  import star from '../star/star.vue';
+  import star from 'components/star/star.vue';
 
 	export default {
 		props: {
@@ -142,7 +142,7 @@
             vertical-align: top
             width: 12px
             height: 12px
-            margin-right: 4
+            margin-right: 4px
             background-size: 12px 12px
             background-repeat: no-repeat
             &.decrease
